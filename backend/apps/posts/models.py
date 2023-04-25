@@ -4,7 +4,7 @@ from common.fields import OptionalCharField
 from users.models import User
 
 
-class Post(models.Model):
+class Post(BaseModel):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE,
         related_name='posts', blank=True)
