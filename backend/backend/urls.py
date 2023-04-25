@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(f'{API_PREFIX}/', include('posts.api.urls')),
     path(f'{API_PREFIX}/', include('users.api.urls')),
+    path(f'{API_PREFIX}/', include('data.api.urls')),
 ]
 
 urlpatterns += [
