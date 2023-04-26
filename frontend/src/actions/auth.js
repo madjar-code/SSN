@@ -21,7 +21,7 @@ export const loadUser = () => async dispatch => {
     const response = await axios.get('api/v1/auth')
 
     dispatch({ type: USER_LOADED, payload: response.data })
-  } catch(error) {
+  } catch(e) {
     dispatch({ type: AUTH_ERROR })
   }
 }
@@ -43,8 +43,8 @@ export const register = ({ name, email, password }) => async dispatch => {
     })
 
     dispatch(loadUser())
-  } catch(error){
-    const errors = error.response.data
+  } catch(e){
+    const errors = e.response.data
 
     if (errors['name']){
       errors['name'].forEach(msg =>
@@ -86,8 +86,8 @@ export const login = ({email, password}) => async dispatch => {
     })
 
     dispatch(loadUser())
-  } catch(_error){
-    const error = _error.response.data.error
+  } catch(e){
+    const error = e.response.data.error
 
     dispatch(setAlert(error, 'danger'))
 
